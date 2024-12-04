@@ -1,0 +1,38 @@
+import java.util.*;
+class dll{
+    node head;
+    class node{
+        int data;
+       node prev;
+     node next;
+    
+    node(int data){
+        this.data=data;
+        prev=null;
+        next=null;
+    }
+}
+    public void insertatstartingposition(int data){
+       node newnode=new node(data);
+       if(head!=null){
+           newnode.next=head;
+           head.prev=newnode;
+       }
+       head=newnode;
+    }
+    public void printallthenodes(){
+        node temp=head;
+        while(temp!=null){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
+        System.out.println();
+    }
+    public static void main(String[] args){
+        dll list=new dll();
+        list.insertatstartingposition(100);
+        list.insertatstartingposition(200);
+        list.insertatstartingposition(300);
+        list.printallthenodes();
+    }
+}
